@@ -1,40 +1,110 @@
-# Santander Bank Customer Segmentation & Behavioral Insights
+# Santander Product Recommendation System
 
-This project analyzes customer demographics and behavior using the Santander product recommendation dataset. The focus is on understanding **customer distribution, gender dynamics, and age patterns** across three main banking segments.
+## Project Overview
+A comprehensive machine learning project to build a product recommendation system for Santander Bank, predicting which financial products customers are most likely to add in the next month. This project combines extensive exploratory data analysis, customer segmentation insights, and multiple recommendation algorithms to understand banking product adoption patterns.
 
-## Objective
-To extract actionable insights from customer data for:
-- Targeted marketing
-- Product personalization
-- Strategic customer segmentation
+## Business Context
+Santander Bank seeks to improve customer experience and increase product adoption by providing personalized product recommendations. The challenge involves predicting up to 7 products each customer is likely to add from a catalog of 24 financial products including accounts, loans, cards, and insurance products.
 
-## Key Analyses
-1. **Customer Distribution by Segment**
-2. **Gender Ratio Across Segments**
-3. **Age Distribution (Violin Plots) by Segment & Gender**
-4. **Product Ownership by segment and province**
+## Project Structure
+```
+SANTANDER-RECSYS-DENNIS/
+├── cf_submission_batch.csv
+├── EDA.ipynb
+├── ErrorAnalysis.ipynb
+├── hybrid_alpha005.csv
+├── mf_hybrid_alpha05.csv
+├── Modelling.ipynb
+├── data/
+│   ├── cleaned_santander_data.csv
+│   ├── kaggle_collaborative_filtering_submission.csv
+│   ├── kaggle_submission.csv
+│   ├── product_diff.csv
+│   ├── test_ver2.csv
+│   └── train_ver2.csv
+├── Plots/
+├── .gitignore
+├── notes.md
+├── Readme.md
+├── ModellingDocumentation.md
+├── EDADocumentation.md
+└── santander-product-recommendation.zip
+```
 
-## Insights
-- Regular individuals form the majority, followed by students.
-- VIPs are few but likely high-value.
-- Gender differences suggest opportunities for targeted offerings.
-- Age distribution highlights clear patterns across segments.
+## Documentation Structure
+- **README.md** (this file): Project overview and structure
+- **[ModellingDocumentation.md](./ModellingDocumentation.md)**: Detailed modeling approaches, algorithms, and performance metrics
+- **[EDADocumentation.md](./EDADocumentation.md)**: Comprehensive exploratory data analysis and insights
 
-##  Tools & Technologies
-- **Python** (Pandas, NumPy)
-- **Seaborn** & **Matplotlib** (Data Visualization)
-- **Jupyter Notebook**
+## Key Components
 
-##  Dataset
-- [Santander Product Recommendation Dataset (Kaggle)](https://www.kaggle.com/c/santander-product-recommendation)
+### 1. Data Analysis (EDA.ipynb)
+- Customer segmentation analysis
+- Product ownership patterns
+- Demographic insights
+- Provincial distribution analysis
+- Temporal patterns in product adoption
 
-##  Next Steps
-- Deal with outliers
-- Build a baseline predictive models for recommendation
-- Tune the model on advanced RecSys models
+### 2. Modeling Pipeline (Modelling.ipynb)
+- Baseline popularity model
+- Collaborative filtering approaches
+- Matrix factorization techniques
+- Hybrid recommendation systems
+- Performance evaluation and optimization
 
-## Contact
-For questions or collaborations, reach out to:
+### 3. Error Analysis (ErrorAnalysis.ipynb)
+- Model failure analysis
+- False positive/negative patterns
+- Improvement strategies
 
+## Dataset Characteristics
+- **Source**: [Santander Product Recommendation (Kaggle Competition)](https://www.kaggle.com/c/santander-product-recommendation)
+- **Timeline**: 17 months of data (Jan 2015 - May 2016)
+- **Scale**: ~945K unique customers, 24 financial products
+- **Sparsity**: 6.46% density in user-product interactions
+- **Evaluation Metric**: MAP@7 (Mean Average Precision at 7)
+
+## Key Findings
+
+### Customer Insights
+- Three main customer segments: Regular individuals (majority), Students, and VIPs
+- Clear age and gender patterns across segments
+- Product adoption follows lifecycle patterns rather than preference-based patterns
+
+### Modeling Results
+- Simple popularity baseline outperforms complex collaborative filtering
+- Banking domain characteristics make traditional recommendation approaches less effective
+- External factors (life events, eligibility) drive product adoption more than user similarities
+
+| Model | MAP@7 (Local) | Kaggle Score |
+|-------|--------------|--------------|
+| Popularity Baseline | 0.5937 | 0.017 |
+| Hybrid (MF + Popularity) | 0.5927 | TBD |
+| Hybrid (CF + Popularity) | 0.5916 | 0.016 |
+
+## Technologies Used
+- **Data Processing**: Python, Pandas, NumPy
+- **Visualization**: Seaborn, Matplotlib
+- **Machine Learning**: Scikit-learn, SciPy
+- **Development Environment**: Jupyter Notebook
+
+## Key Learnings
+1. Domain understanding is crucial - banking products don't follow typical e-commerce patterns
+2. Simple baselines can outperform complex models in regulated, lifecycle-driven domains
+3. Sparsity and external factors limit collaborative filtering effectiveness in financial services
+4. Customer segmentation reveals opportunities for targeted approaches
+
+## Future Directions
+- Implement segment-specific models for different customer groups
+- Incorporate temporal features and seasonality
+- Explore sequence-based models for product lifecycle
+- Add business rules for regulatory compliance
+
+## Author
 **Dennis Mathew Jose**  
-🔗 [https://www.linkedin.com/in/dennismjose/]
+MS Data Analytics Engineering, Northeastern University  
+[LinkedIn](https://www.linkedin.com/in/dennismjose/)
+
+## Acknowledgments
+- Santander Bank for providing the dataset through Kaggle
+- Kaggle community for insights and discussions
