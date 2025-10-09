@@ -34,7 +34,6 @@ SANTANDER-RECSYS-DENNIS/
 ## Documentation Structure
 - **README.md** (this file): Project overview and structure
 - **[ModellingDocumentation.md](./ModellingDocumentation.md)**: Detailed modeling approaches, algorithms, and performance metrics
-- **[EDADocumentation.md](./EDADocumentation.md)**: Comprehensive exploratory data analysis and insights
 
 ## Key Components
 
